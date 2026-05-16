@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#f5f5f4] font-sans" >
+
+    <div  class="flex justify-center items-center" >
+        <div class="bg-white w-120 rounded-[20px] text-[12px] h-37 mt-10 p-[20px] border-[0.5px] border-[#d0d0d0] ">
+            <div>
+                <p class="text-[#888] text-[12px] py-1">Current Balance</p>
+                <h1 id="ball" class="text-[31px] font-bold">$0.00</h1>
+                <div class="flex gap-3">
+                    <select  id="opt" class="border border-[0.5px] border-[#d0d0d0] p-2 cursor-pointer bg-[#f5f5f4] rounded-[8px]">
+                             <option value="$">USD ($)</option>
+                             <option value="£">GBP (£)</option>
+                             <option value="€">EUR (€)</option>
+                             <option value="₦">NGN (₦)</option>
+                             <option value="¥">JPY (¥)</option>
+                             <option value="₹">INR (₹)</option>
+                             <option value="C$">CAD (C$)</option>
+                            <option value="A$">AUD (A$)</option>
+                    </select>
+                    <button id="add" class="border border-[0.5px] border-[#d0d0d0] p-2 cursor-pointer rounded-[8px]">+Add Balance</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="flex justify-center">
+            <div class="flex gap-2 w-120 justify-between my-5">
+                <div class="bg-[#f0f0ee] w-1/2 py-[0.9rem] px-4 rounded-[10px] ">
+                    <h1 class="text-[12px] text-[#888] mb-1">total income</h1>
+                    <p class="text-[20px] text-[#1D9E75] font-bold" id="tol-inc">$0.00</p>
+                </div>
+                <div class="bg-[#f0f0ee] w-1/2 py-[0.9rem] px-4 rounded-[10px]">
+                  <h1 class="text-[12px] text-[#888] mb-1">total expense</h1>
+                    <p class="text-[#D85A30] text-[20px] font-bold" id="tol-exp">$0.00</p>  
+                </div>
+            </div>
+        
+     </div>
+    <div class="flex justify-center items-center" >
+      <div class="bg-white w-120 rounded-[20px] h-69 p-[20px] border-[0.5px] border-[#d0d0d0] ">
+          <div>
+            <h1 class="text-[#888] font-semibold text-[14px] mb-3">New Transaction</h1>
+        </div>
+        <div class="flex border border-[0.5px] border-[#d0d0d0] rounded-[10px] text-[#888] overflow-hidden text-[13px] mb-4 w-full  ">
+            <button class="px-[80px] py-[7px] text-center cursor-pointer w-1/2 py-3 bg-[#E1F5EE] text-[#0F6E56] " id="inc">Income</button>
+            <div class="w-[0.5px] bg-[#d0d0d0] "></div>
+            <button class="px-[80px] py-[8px] cursor-pointer  w-1/2"  id="exp">Expense</button>
+        </div>
+        <div class="inline">
+            <input type="text" class="border border-[0.5px] border-[#d0d0d0] w-full mb-2 px-2 py-2 rounded-[10px]  outline-none" placeholder="Description (e.g salary)" id="desc">
+            <input type="number" class="border border-[0.5px] w-full border-[#d0d0d0] px-2 py-2 mb-3 rounded-[10px]  outline-none " placeholder="Amount" id="amo">
+        </div>
+        <div>
+            <button class="border border-[0.5px] border-[#d0d0d0] w-full mb-2 px-1 py-[9px] cursor-pointer bg-[#1D9E75] text-white font-bold text-[13px] rounded-[10px]" id="last">Add Income</button>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center items-center ">
+        <div class="bg-white w-120 rounded-[20px] p-[20px] mt-3 border-[0.5px] border-[#d0d0d0] mb-4 ">
+                <div>
+                    <h5 class="text-[#888] font-semibold text-[13px] mb-3">Transaction History </h5>
+                </div>
+                <div class="" id="drop">
+                   <h1 class="text-center text-[12px] text-[#bbb] capitalize"  id="no">No transaction yet</h1>
+                   <!-- <div class="flex justify-between">
+                     <div class="flex gap-3">
+                          <i class="fa fa-plus bg-[#E1F5EE] text-[#0F6E56] !text-[10px] p-3 h-9 w-9 rounded-[40px] text-center "></i>
+                          <div>
+                            <h class="text-black font-semibold">helllo</h1>
+                            <h2 class="text-[#bbb] text-[13px]">income</h2>
+                           </div>
+                      </div>
+                       <div>
+                         <h1 class="text-green-500">$57</h1>
+                       </div> -->
+                </div>
+               
+                   </div>
+        </div>
+    </div>
+   <div id="overlay" class="fixed inset-0 bg-black/50  hidden z-40 overflow-hidden"></div>
+  <div class="relative z-50">
+    <div class="absolute bottom-100 right-110 bg-white w-70 rounded-[20px] text-[12px] h-40  mb-2 p-[20px] border-[0.5px] border-[#d0d0d0] hidden" id="con">
+        <div>
+            <h1 class="text-[18px] font-semibold mb-3">Add Balance</h1>
+            <input type="number" id="bal" class="border border-[0.5px] border-[#d0d0d0] w-full mb-2 px-2 py-2 rounded-[10px] outline-none" placeholder="Amount">
+            <div class="flex gap-2 font-bold">
+                <button  class="border border-[0.5px] border-[#d0d0d0] p-2 w-1/2 cursor-pointer rounded-[8px]" id="can">cancel</button>
+                <button class="border border-[0.5px] border-[#d0d0d0] bg-[#1D9E75] text-white p-2 w-1/2 cursor-pointer rounded-[8px]" id="add-bal">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="own.js"></script>
+</body>
+</html>
